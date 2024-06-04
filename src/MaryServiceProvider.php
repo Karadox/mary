@@ -48,11 +48,13 @@ use Mary\View\Components\MenuTitle;
 use Mary\View\Components\Modal;
 use Mary\View\Components\Nav;
 use Mary\View\Components\Pin;
+use Mary\View\Components\Popover;
 use Mary\View\Components\Progress;
 use Mary\View\Components\ProgressRadial;
 use Mary\View\Components\Radio;
 use Mary\View\Components\Range;
 use Mary\View\Components\Select;
+use Mary\View\Components\SelectGroup;
 use Mary\View\Components\Signature;
 use Mary\View\Components\Spotlight;
 use Mary\View\Components\Stat;
@@ -129,6 +131,7 @@ class MaryServiceProvider extends ServiceProvider
         Blade::component($prefix . 'errors', Errors::class);
         Blade::component($prefix . 'file', File::class);
         Blade::component($prefix . 'form', Form::class);
+        Blade::component($prefix . 'select-group', SelectGroup::class);
         Blade::component($prefix . 'header', Header::class);
         Blade::component($prefix . 'hr', Hr::class);
         Blade::component($prefix . 'icon', Icon::class);
@@ -148,6 +151,7 @@ class MaryServiceProvider extends ServiceProvider
         Blade::component($prefix . 'main', Main::class);
         Blade::component($prefix . 'nav', Nav::class);
         Blade::component($prefix . 'pin', Pin::class);
+        Blade::component($prefix . 'popover', Popover::class);
         Blade::component($prefix . 'progress', Progress::class);
         Blade::component($prefix . 'progress-radial', ProgressRadial::class);
         Blade::component($prefix . 'radio', Radio::class);
@@ -220,7 +224,7 @@ class MaryServiceProvider extends ServiceProvider
 
         // Register the service the package provides.
         $this->app->singleton('mary', function ($app) {
-            return new Mary;
+            return new Mary();
         });
     }
 
